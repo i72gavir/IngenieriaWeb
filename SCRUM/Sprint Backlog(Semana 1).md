@@ -1,6 +1,6 @@
 # Sprint Backlog - Semana 1
 
-Aquí podremos ver los avances realizados durante la primera iteración, del día 22 de marzo al día 28 de marzo
+Aquí podremos ver los avances realizados durante la primera iteración, del día 21 de marzo al día 27 de marzo
 
 
 
