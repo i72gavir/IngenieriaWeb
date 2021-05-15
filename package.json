@@ -1,0 +1,28 @@
+{
+  "name": "ingenieriaweb",
+  "version": "1.0.0",
+  "description": "Backend of gym app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./scr/index.js",
+    "dev": "nodemon ./scr/index.js localhost 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raf96gv/IngenieriaWeb.git"
+  },
+  "author": "Group 6",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raf96gv/IngenieriaWeb/issues"
+  },
+  "homepage": "https://github.com/raf96gv/IngenieriaWeb#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
