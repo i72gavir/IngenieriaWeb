@@ -1,29 +1,25 @@
+"use strict";
+const user = require('./logic/userLogin');
+
 const express = require('express')
-const mysql = require('mysql')
-const app = express()
+const app = express();
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('/', async (req, res) => {
+  res.json(await user.loginStaff('p02avcag@uco.es', 'gabotk'));
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`);
+  // console.log(login.registerPersonel('Gabriel', '12345-Y', '3154805678', 'gabotk', 'Damasco 2', 'p02avcag@uco.es'));
 })
 
-const connection = mysql.createConnection({
-  host: 'freedb.tech',
-  port: '3306',
-  user: 'freedbtech_iroloa',
-  password: '1234',
-  database: 'freedbtech_gymdiwb'
-})
 
-connection.connect()
-
-connection.query('SHOW TABLES;', function (err, rows, fields) {
+/*
+connection.connect();
+connection.query(login.getAllUsers(), function (err, rows, fields) {
   if (err) throw err
-  console.log('The solution is: ', rows)
+  console.log('The solution is (inside): ', rows)
 })
+connection.end();*/
 
-connection.end()
