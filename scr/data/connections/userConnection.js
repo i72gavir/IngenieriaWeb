@@ -18,5 +18,14 @@ exports.getStaffById = async function (id_staff) {
   return general.doSimpleQuery(userQueries.getStaffById (id_staff) );
 }
 
+/**
+ * NOTE: This section has all customer queries
+ * */ 
 
+exports.lookCustomer = async function (email, password) {
+  return general.doSimpleQuery(userQueries.lookCustomer(email, password));
+}
 
+exports.registerCustomer = async function (name, dni, phone, password, address, email, bankAccount, isPaymentOK) {
+  return general.doSimpleQuery(userQueries.registerCustomer(name, dni, phone, password, address, email, bankAccount, isPaymentOK));
+}

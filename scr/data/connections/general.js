@@ -27,14 +27,15 @@ exports.makeDb = function (  ) {
 
 exports.doSimpleQuery = async function (query) {
   const db = exports.makeDb();
-  let someRows;
+  let result;
   try {
-    someRows = await db.query( query );
+    result = await db.query( query );
   } catch ( err ) {
     // handle the error
     console.log(`Error in ${err}`);
+    result = "error";
   } finally {
     await db.close();
   }
-  return someRows;
+  return result;
 }
