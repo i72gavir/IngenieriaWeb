@@ -11,7 +11,7 @@ const loginCustomer = async function (email, password) {
 }
 
 exports.login = async function (req) {
-  console.log(req.body);
+  console.log('in body', req.body);
   const email = req.body.email;
   const password = req.body.password;
   const resultStaff = await loginStaff(email, password);

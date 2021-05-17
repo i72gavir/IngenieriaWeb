@@ -3,9 +3,11 @@ const user = require('./logic/userLogic');
 
 const { StatusCodes } = require('http-status-codes');
 const express = require('express');
+var cors = require('cors');
 const app = express();
-const port = 3000;
+const port = 5000;
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
