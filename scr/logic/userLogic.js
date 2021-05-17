@@ -38,6 +38,18 @@ exports.login = async function (req) {
   };;
 }
 
+exports.updateCustomer = async function (req) { 
+  console.log(req);
+  const id = req.body.id_customer;
+  const name = req.body.name;
+  const phone = req.body.phone;
+  const address = req.body.address;
+  const email = req.body.email;
+  const res = await userData.updateCustomer(id, name, phone, address, email);
+  return res;
+
+}
+
 exports.createCustomer = async function (name, dni, phone, password, address, email, bankAccount, isPaymentOK) {
   return await userData.registerCustomer(name, dni, phone, password, address, email, bankAccount, isPaymentOK);
 }

@@ -12,5 +12,10 @@ exports.getStaffById = (id_staff) => `SELECT * FROM ${PERSONEL} WHERE id_persona
 
 exports.lookCustomer = (email, password) => `SELECT * FROM ${CUSTOMER} WHERE correo='${email}' AND \`contraseña\`='${password}';`;
 exports.registerCustomer = (name, dni, phone, password, address, email, bankAccount, isPaymentOK) => 
-  `INSERT INTO ${CUSTOMER} (nombre, dni, telefono, domicilio, correo, contraseña, cuenta_bancaria, corriente_de_pago) 
-  VALUES ('${name}', '${dni}', '${phone}', '${address}', '${email}', '${password}', '${bankAccount}', '${isPaymentOK}');`;
+`INSERT INTO ${CUSTOMER} (nombre, dni, telefono, domicilio, correo, contraseña, cuenta_bancaria, corriente_de_pago) 
+VALUES ('${name}', '${dni}', '${phone}', '${address}', '${email}', '${password}', '${bankAccount}', '${isPaymentOK}');`;
+
+exports.updateCustomer = (id_customer, name, phone, address, email) => 
+`UPDATE ${CUSTOMER}
+SET nombre = '${name}', telefono = '${phone}', domicilio = '${address}', correo = '${email}'
+WHERE id_socio = '${id_customer}';`;

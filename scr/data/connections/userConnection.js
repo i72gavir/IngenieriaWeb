@@ -29,3 +29,7 @@ exports.lookCustomer = async function (email, password) {
 exports.registerCustomer = async function (name, dni, phone, password, address, email, bankAccount, isPaymentOK) {
   return general.doSimpleQuery(userQueries.registerCustomer(name, dni, phone, password, address, email, bankAccount, isPaymentOK));
 }
+
+exports.updateCustomer = async function (id_customer, name, phone, address, email) {
+  return general.doSimpleQuery(userQueries.updateCustomer(id_customer, name, phone, address, email));
+} 
