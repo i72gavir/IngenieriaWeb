@@ -9,6 +9,10 @@ exports.getClassInfo = async function (id_class) {
   return  general.doSimpleQuery(classQueries.getClassInfo(id_class));
 }
 
+exports.getAllClassInfo = async function () {
+  return  general.doSimpleQuery(classQueries.getAllClassInfo());
+}
+
 exports.getClassInfoByCustomer = async function (id_customer) {
   return general.doSimpleQuery(classQueries.getClassInfoByCustomer(id_customer));
 }

@@ -1,6 +1,7 @@
 "use strict";
 const user = require('./logic/userLogic');
 const classLogic = require('./logic/classLogic');
+const reservationLogic = require('./logic/reservationLogic');
 
 const { StatusCodes } = require('http-status-codes');
 const express = require('express');
@@ -47,12 +48,23 @@ app.post('/user/login', async (req, res) => {
 })
 
 app.post('/class', async (req, res) => {
-  let result = await classLogic.createCustomer(req);
+  let result = await classLogic.createClass(req);
   if (result !== 'error') {
     res.json(result);
     res.status(StatusCodes.OK);
   } else {
     res.send("Error in /class");
+    res.status(StatusCodes.METHOD_NOT_ALLOWED);
+  }
+})
+
+app.get('/classinfo', async (req, res) => {
+  let result = await classLogic.getAllClassInfo();
+  if (result !== 'error') {
+    res.json(result);
+    res.status(StatusCodes.OK);
+  } else {
+    res.send("Error in /classInfo");
     res.status(StatusCodes.METHOD_NOT_ALLOWED);
   }
 })
@@ -75,6 +87,28 @@ app.get('/classinfo/customer/:id_customer', async (req, res) => {
     res.status(StatusCodes.OK);
   } else {
     res.send("Error in /classInfo");
+    res.status(StatusCodes.METHOD_NOT_ALLOWED);
+  }
+})
+
+app.post('/classinfo/forcustomer', async (req, res) => {
+  let result = await classLogic.getAllClassesForCustomer(req);
+  if (result !== 'error') {
+    res.json(result);
+    res.status(StatusCodes.OK);
+  } else {
+    res.send("Error in /classInfo");
+    res.status(StatusCodes.METHOD_NOT_ALLOWED);
+  }
+})
+
+app.post('/reservation', async (req, res) => {
+  let result = await reservationLogic.createRegistration(req);
+  if (result !== 'error') {
+    res.json(result);
+    res.status(StatusCodes.OK);
+  } else {
+    res.send("Error in /reservation");
     res.status(StatusCodes.METHOD_NOT_ALLOWED);
   }
 })
