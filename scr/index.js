@@ -47,12 +47,34 @@ app.post('/user/login', async (req, res) => {
 })
 
 app.post('/class', async (req, res) => {
-  let result = await classLogic(req);
+  let result = await classLogic.createCustomer(req);
   if (result !== 'error') {
     res.json(result);
     res.status(StatusCodes.OK);
   } else {
     res.send("Error in /class");
+    res.status(StatusCodes.METHOD_NOT_ALLOWED);
+  }
+})
+
+app.get('/classinfo/:id_class', async (req, res) => {
+  let result = await classLogic.getClassInfo(req.params);
+  if (result !== 'error') {
+    res.json(result);
+    res.status(StatusCodes.OK);
+  } else {
+    res.send("Error in /classInfo");
+    res.status(StatusCodes.METHOD_NOT_ALLOWED);
+  }
+})
+
+app.get('/classinfo/customer/:id_customer', async (req, res) => {
+  let result = await classLogic.getClassInfoByCustomer(req);
+  if (result !== 'error') {
+    res.json(result);
+    res.status(StatusCodes.OK);
+  } else {
+    res.send("Error in /classInfo");
     res.status(StatusCodes.METHOD_NOT_ALLOWED);
   }
 })

@@ -10,3 +10,11 @@ exports.createCustomer = async function (req) {
   const capacity = req.body.capacity;
   return await classData.createClass(id_staff, name, description, enter, exit, capacity);
 }
+
+exports.getClassInfo = async function (params) {
+  return await classData.getClassInfo(params.id_class);
+}
+
+exports.getClassInfoByCustomer = async function (req) {
+  return await classData.getClassInfoByCustomer(req.params.id_customer);
+}
