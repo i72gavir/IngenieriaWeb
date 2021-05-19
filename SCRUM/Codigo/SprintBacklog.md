@@ -11,4 +11,4 @@ Aquí podremos ver los avances realizados desde el día 7 de mayo al día 19 de 
 | 39 | InscribirClase | 2 | gavendanoc | 16/05/2021 | 2 hora |
 | 40 | IniciarSesión | 2 | gavendanoc | 17/05/2021 | 2 hora |
 | 41 | Implementación bbdd | 2 | i72roloa | 11/05/2021 | 2 hora y 25 min |
-| 42 | Back-end heroku | 2 | gavendanoc | 18/05/2021 | 2 hora |
+| 42 | Back-end heroku | 2 | gavendanoc | 17/05/2021 | 2 hora |
