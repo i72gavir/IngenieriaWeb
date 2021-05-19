@@ -75,7 +75,7 @@ app.get('/classinfo/:id_class', async (req, res) => {
     res.json(result);
     res.status(StatusCodes.OK);
   } else {
-    res.send("Error in /classInfo");
+    res.send("Error in /classinfo/:id_class");
     res.status(StatusCodes.METHOD_NOT_ALLOWED);
   }
 })
@@ -86,7 +86,7 @@ app.get('/classinfo/customer/:id_customer', async (req, res) => {
     res.json(result);
     res.status(StatusCodes.OK);
   } else {
-    res.send("Error in /classInfo");
+    res.send("Error in /classinfo/customer/:id_customer");
     res.status(StatusCodes.METHOD_NOT_ALLOWED);
   }
 })
@@ -97,7 +97,7 @@ app.post('/classinfo/forcustomer', async (req, res) => {
     res.json(result);
     res.status(StatusCodes.OK);
   } else {
-    res.send("Error in /classInfo");
+    res.send("Error in /classinfo/forcustomer");
     res.status(StatusCodes.METHOD_NOT_ALLOWED);
   }
 })
@@ -113,17 +113,18 @@ app.post('/reservation', async (req, res) => {
   }
 })
 
+app.delete('/reservation', async (req, res) => {
+  let result = await reservationLogic.deleteRegistration(req);
+  if (result !== 'error') {
+    res.json(result);
+    res.status(StatusCodes.OK);
+  } else {
+    res.send("Error in delete /reservation");
+    res.status(StatusCodes.METHOD_NOT_ALLOWED);
+  }
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
   // console.log(login.registerPersonel('Gabriel', '12345-Y', '3154805678', 'gabotk', 'Damasco 2', 'p02avcag@uco.es'));
 })
-
-
-/*
-connection.connect();
-connection.query(login.getAllUsers(), function (err, rows, fields) {
-  if (err) throw err
-  console.log('The solution is (inside): ', rows)
-})
-connection.end();*/
-
